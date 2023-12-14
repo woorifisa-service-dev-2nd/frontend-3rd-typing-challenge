@@ -15,6 +15,7 @@ const reducerWord = (state, action) => {
       return {
         ...state,
         playWord: playWord.splice(0, state.playWordNumber),
+        isPlaying: true
       };
     }
     case "CORRECT": {
@@ -46,7 +47,8 @@ const WordProvider = ({ children }) => {
     playWord: [],
     playWordNumber: PLAY_WORD_NUMBER,
     correctCount: 0,
-    isPlaying: true,
+    isPlaying: false,
+
   });
 
   return (
@@ -62,3 +64,4 @@ const WordProvider = ({ children }) => {
 export default WordProvider;
 export const useWord = () => useContext(WordContext);
 export const useWordDispath = () => useContext(WordDisPathContext);
+
