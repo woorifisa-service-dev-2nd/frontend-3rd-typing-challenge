@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
+import WordBottom from "../Word/wordBottom"
 import WordInput from "./WordInput";
 import { createPortal } from "react-dom";
 import Modal from "../ui/Modal";
 import WordModalContext from "./WordModalContext";
-import { useWord, useWordDispath } from "../../contexts/WordContext";
+import { useWord } from "../../contexts/WordContext";
 import StartButton from "../ui/Button/StartButton";
 import WordlTableBody from "./WordlTableBody";
 
@@ -26,9 +26,11 @@ const WordBody = () => {
         <>
           <WordlTableBody />
           <WordInput />
+          <WordBottom />
         </>
       ) : (
         <StartButton onClick={() => setStart(true)} />
+
       )}
 
       {isOpen &&
