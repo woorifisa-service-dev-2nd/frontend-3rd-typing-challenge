@@ -1,12 +1,14 @@
-import { useState } from "react";
 import DefaultLayout from "./layouts/DefaultLayout";
 import WordBody from "./compoents/Word/WordBody";
+import WordProvider from "./contexts/WordContext";
 
 function App() {
   return (
     <>
       <DefaultLayout>
-        <WordBody />
+        <WordProvider>
+          <WordBody />
+        </WordProvider>
       </DefaultLayout>
     </>
   );
