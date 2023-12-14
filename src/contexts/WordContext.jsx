@@ -15,7 +15,8 @@ const reducerWord = (state, action) => {
       return {
         ...state,
         playWord: playWord.splice(0, state.playWordNumber),
-        isPlaying: true
+        isPlaying: true,
+        correctCount: 0,
       };
     }
     case "CORRECT": {
@@ -25,7 +26,7 @@ const reducerWord = (state, action) => {
         };
       }
       const correctId = action.correctId;
-      state.playWord[correctId] = "";
+      state.playWord[correctId] = "🎃";
 
       const correctCount = state.correctCount + 1;
 
@@ -48,7 +49,6 @@ const WordProvider = ({ children }) => {
     playWordNumber: PLAY_WORD_NUMBER,
     correctCount: 0,
     isPlaying: false,
-
   });
 
   return (
@@ -64,4 +64,3 @@ const WordProvider = ({ children }) => {
 export default WordProvider;
 export const useWord = () => useContext(WordContext);
 export const useWordDispath = () => useContext(WordDisPathContext);
-

@@ -1,25 +1,44 @@
-import React, { useState } from "react";
-import WordTable from "./WordTable";
+import React, { useEffect, useState } from "react";
+
 import WordInput from "./WordInput";
 import { createPortal } from "react-dom";
 import Modal from "../ui/Modal";
 import WordModalContext from "./WordModalContext";
+import { useWord, useWordDispath } from "../../contexts/WordContext";
+import StartButton from "../ui/Button/StartButton";
+import WordlTableBody from "./WordlTableBody";
 
 const WordBody = () => {
+  const { isPlaying, playWord } = useWord();
+
   const [isOpen, setOpen] = useState(false);
-  const openModal = () => setOpen(true);
-  const closeModal = () => setOpen(false);
+  const [isStart, setStart] = useState(false);
+
+  useEffect(() => {
+    if (playWord.length !== 0) {
+      setOpen(!isPlaying);
+    }
+  }, [isPlaying]);
 
   return (
     <>
-      <WordTable />
-      <WordInput />
-      
-      {/* 화면에 마지막으로 남은 단어를 입력하면 openModal 실행 후 Modal 열린다.*/}
+      {isStart ? (
+        <>
+          <WordlTableBody />
+          <WordInput />
+        </>
+      ) : (
+        <StartButton onClick={() => setStart(true)} />
+      )}
+
       {isOpen &&
         createPortal(
-          <Modal onClose={closeModal}>
-            <WordModalContext onClose={closeModal} />
+          <Modal>
+            <WordModalContext
+              onClose={() => {
+                window.close();
+              }}
+            />
           </Modal>,
           document.body
         )}
