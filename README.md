@@ -1,10 +1,10 @@
 ## 프로젝트 소개
 - 타자연습 게임을 모방하여 만든 간단한 게임입니다. 제시된 단어를 모두 입력하면 게임이 끝납니다.
 <br>
-<img width="800" alt="첨부1" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/52c195c9-623e-4b7b-a058-e3db12fbb6f9">
-<img width="800" alt="첨부2" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/e19f9826-b084-4289-be6b-04159d6db237">
-<img width="800" alt="모달1" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/82b09e34-bb47-4bc6-b8c8-e838f183a721">
-<img width="800" alt="모달2" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/796ddd07-a5d2-4734-9f82-13ffb38643f7">
+<img width="800" height="400" alt="첨부1" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/52c195c9-623e-4b7b-a058-e3db12fbb6f9">
+<img width="800" height="400" alt="첨부2" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/e19f9826-b084-4289-be6b-04159d6db237">
+<img width="800" height="400" alt="모달1" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/82b09e34-bb47-4bc6-b8c8-e838f183a721">
+<img width="800" height="400" alt="모달2" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/796ddd07-a5d2-4734-9f82-13ffb38643f7">
 
 
 ## 팀원
@@ -14,7 +14,7 @@
 <br>
 
 ## 협업 방식
-Git
+<img src="https://img.shields.io/badge/Github-3776AB?style=for-the-badge&logo=Github&logoColor=white">
 <br>
 
 ## 사용 라이브러리
