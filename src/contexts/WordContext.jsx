@@ -19,23 +19,23 @@ const reducerWord = (state, action) => {
         correctCount: 0,
       };
     }
-    // case "CORRECT": {
-    //   if (state.correctCount >= state.playWordNumber) {
-    //     return {
-    //       ...state,
-    //     };
-    //   }
-    //   const correctId = action.correctId;
-    //   state.playWord[correctId] = "🎃";
+    case "CORRECT": {
+      if (state.correctCount >= state.playWordNumber) {
+        return {
+          ...state,
+        };
+      }
+      const correctId = action.correctId;
+      state.playWord[correctId] = "🎃";
 
-    //   const correctCount = state.correctCount + 1;
+      const correctCount = state.correctCount + 1;
 
-    //   return {
-    //     ...state,
-    //     correctCount,
-    //     isPlaying: correctCount === state.playWordNumber ? false : true,
-    //   };
-    // }
+      return {
+        ...state,
+        correctCount,
+        isPlaying: correctCount === state.playWordNumber ? false : true,
+      };
+    }
 
     default:
       break;

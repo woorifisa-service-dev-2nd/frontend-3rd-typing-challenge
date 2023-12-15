@@ -1,4 +1,4 @@
-export const PLAY_WORD_NUMBER = 10;
+export const PLAY_WORD_NUMBER = 5;
 
 export const DEMY_WORD = [
   "사과",

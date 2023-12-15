@@ -1,11 +1,9 @@
-import { useEffect } from "react";
+
 import { useWord } from "../../contexts/WordContext";
 import Word from "./Word";
 
 const WordlTableBody = () => {
     const words = useWord();
-
-    console.log(words);
 
 
     return (
