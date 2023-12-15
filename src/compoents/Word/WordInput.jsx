@@ -13,21 +13,17 @@ const WordInput = () => {
   const [toast, setToast] = useState(false);
 
   const checkWord = (word) => {
-    
-
     if (playWord.length === 0) return;
 
     const findIndex = playWord.findIndex((v) => v.trim() === word.trim());
 
     if (findIndex !== -1) {
       wordDispath({ type: "CORRECT", correctId: findIndex });
-      console.log(findIndex);
     } else {
       setToast(true);
       setTimeout(() => {
-          setToast(false);
-        }, 1000);
-      console.log('setToast(true)');
+        setToast(false);
+      }, 1000);
     }
 
     inputRef.current.focus();
@@ -54,7 +50,9 @@ const WordInput = () => {
       {toast &&
         createPortal(
           <Modal>
-            <h1 className="text-5xl">다시 입력하세요</h1>
+            <div className="w-full h-full flex justify-center items-center">
+              <h1 className="text-5xl">다시 입력하세요</h1>
+            </div>
           </Modal>,
           document.body
         )}

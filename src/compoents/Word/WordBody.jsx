@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import WordBottom from "../Word/wordBottom"
+import WordBottom from "../Word/wordBottom";
 import WordInput from "./WordInput";
 import { createPortal } from "react-dom";
 import Modal from "../ui/Modal";
@@ -13,15 +13,14 @@ const WordBody = () => {
   const { isPlaying, playWord } = useWord();
   const dispath = useWordDispath();
 
-
   const [isStart, setStart] = useState(false);
 
   const onClickStart = () => {
     dispath({
-      type: "RANDDOM_WORD"
-    })
-    setStart(true)
-  }
+      type: "RANDDOM_WORD",
+    });
+    setStart(true);
+  };
 
   return (
     <div className="p-2">
@@ -33,11 +32,14 @@ const WordBody = () => {
         </>
       ) : (
         <div className="h-[90vh] flex justify-center items-center">
-          <Button className={'p-4'} onClick={onClickStart} >시작 버튼</Button>
+          <Button className={"p-4"} onClick={onClickStart}>
+            시작 버튼
+          </Button>
         </div>
       )}
 
-      {(!isPlaying && playWord.length !== 0) &&
+      {!isPlaying &&
+        playWord.length !== 0 &&
         createPortal(
           <Modal>
             <WordModalContext

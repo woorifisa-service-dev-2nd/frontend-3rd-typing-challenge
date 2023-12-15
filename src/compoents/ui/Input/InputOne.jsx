@@ -17,7 +17,12 @@ const InputOne = ({ onKeyDown, onClickIcon, btnText, children, inputRef }) => {
           </label>
           <Button
             onClick={onClickIcon}
-            className={'!absolute cursor-pointer right-1 top-1  rounded py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase transition-all   active:shadow-none disabled:pointer-events-none  disabled:cursor-none disabled:shadow-none'}>{btnText}</Button>
+            className={
+              "!absolute cursor-pointer right-1 top-1  rounded py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase transition-all   active:shadow-none disabled:pointer-events-none  disabled:cursor-none disabled:shadow-none"
+            }
+          >
+            {btnText}
+          </Button>
         </div>
       </div>
     </>

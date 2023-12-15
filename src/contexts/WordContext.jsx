@@ -42,8 +42,6 @@ const reducerWord = (state, action) => {
   }
 };
 
-//////////////////////////////////////////////////////////////////////////////////
-
 const WordProvider = ({ children }) => {
   const [words, wordDispath] = useReducer(reducerWord, {
     originalData: DEMY_WORD,
@@ -64,7 +62,6 @@ const WordProvider = ({ children }) => {
 };
 
 export default WordProvider;
-
 
 export const useWord = () => useContext(WordContext);
 export const useWordDispath = () => useContext(WordDisPathContext);
