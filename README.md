@@ -1,6 +1,11 @@
 ## 프로젝트 소개
 - 타자연습 게임을 모방하여 만든 간단한 게임입니다. 제시된 단어를 모두 입력하면 게임이 끝납니다.
 <br>
+<img width="800" alt="첨부1" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/52c195c9-623e-4b7b-a058-e3db12fbb6f9">
+<img width="800" alt="첨부2" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/e19f9826-b084-4289-be6b-04159d6db237">
+<img width="800" alt="모달1" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/82b09e34-bb47-4bc6-b8c8-e838f183a721">
+<img width="800" alt="모달2" src="https://github.com/woorifisa-service-dev-2nd/frontend-3rd-typing-challenge/assets/151590254/796ddd07-a5d2-4734-9f82-13ffb38643f7">
+
 
 ## 팀원
 - 김주찬
@@ -18,13 +23,12 @@ Git
 
 <br>
 
-## 핵심 기능 및 구현 방법
-- 제시된 단어를 화면에 렌더링
-- 입력받은 단어가 제시된 단어와 일치하면 제시된 단어가 호박 이미지로 변경됨
-- 모든 단어를 입력하면 게임을 다시 하거나 끝낼 수 있음
-- useContext
-- spin
-- useState
+## 기능
+- 제시된 단어를 화면에 렌더링합니다.
+- 입력받은 단어가 제시된 단어와 일치하면 제시된 단어가 호박 이미지로 변경됩니다.
+- 모든 단어를 입력하면 게임을 다시 하거나 끝낼 수 있습니다.
+- 강의에서 배운 useContext , useReducer 사용하여 모든 컴포넌트에서 게임 데이터, 함수에 쉽게 접근할 수 있습니다.
+
 <br>
 
 ## 트러블 슈팅
@@ -44,6 +48,58 @@ const keyboardDownHandloer = (e) => {
 <br>
 
 ## 재사용
+1. 버튼
+
+```js
+const Button = ({ onClick, children, className }) => {
+  return (
+    <button
+      className={`${
+        className ? className : ""
+      } bg-gray-600 hover:bg-gray-500 text-white font-bold border-b-4 border-gray-800 hover:border-gray-600 rounded-lg`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+```
+<br>
+
+```js
+<Button className={"p-4"} onClick={onClickStart}>
+            시작 버튼
+          </Button>
+```
+
+2. 모달
+
+```js
+const Modal = ({ children, onClose }) => {
+  return (
+    <>
+      <div
+        data-cy="modal-backdrop"
+        className="fixed top-0 ..."
+        onClick={onClose}
+      ></div>
+      <div className="fixed z-10 ...">
+        {children}
+      </div>
+    </>
+  );
+};
+```
+
+<br>
+
+```js
+<Modal>
+ <div className="w-full h-full ...">
+   <h1 className="text-5xl">다시 입력하세요</h1>
+ </div>
+</Modal>,
+```
 
 
 <br>
