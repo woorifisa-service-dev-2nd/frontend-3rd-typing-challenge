@@ -6,7 +6,7 @@ const WordModalContext = ({ onClose }) => {
   const wordDispath = useWordDispath();
   const onPlayAgain = () => {
     wordDispath({
-      type: "RANDDOM_WORD",
+      type: "GAME_START",
     });
   };
 

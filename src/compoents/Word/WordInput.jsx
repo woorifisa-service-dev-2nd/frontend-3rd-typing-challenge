@@ -12,6 +12,10 @@ const WordInput = () => {
 
   const [toast, setToast] = useState(false);
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const checkWord = (word) => {
     if (playWord.length === 0) return;
 
@@ -31,6 +35,7 @@ const WordInput = () => {
   };
 
   const keyboardDownHandloer = (e) => {
+    if (e.nativeEvent.isComposing) return;
     if (e.code === "Enter" || e.keyCode === 13) {
       checkWord(inputRef.current.value);
     }

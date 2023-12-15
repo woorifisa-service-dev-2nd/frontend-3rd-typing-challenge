@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import WordBottom from "../Word/wordBottom";
+import WordBottom from "./WordBottom";
 import WordInput from "./WordInput";
 import { createPortal } from "react-dom";
 import Modal from "../ui/Modal";
@@ -17,7 +17,7 @@ const WordBody = () => {
 
   const onClickStart = () => {
     dispath({
-      type: "RANDDOM_WORD",
+      type: "GAME_START",
     });
     setStart(true);
   };

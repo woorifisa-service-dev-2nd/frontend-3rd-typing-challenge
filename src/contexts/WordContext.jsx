@@ -8,7 +8,7 @@ const WordDisPathContext = createContext();
 
 const reducerWord = (state, action) => {
   switch (action.type) {
-    case "RANDDOM_WORD": {
+    case "GAME_START": {
       const copy = state.originalData;
       const playWord = shuffleByArray(copy);
 
@@ -36,7 +36,6 @@ const reducerWord = (state, action) => {
         isPlaying: correctCount === state.playWordNumber ? false : true,
       };
     }
-
     default:
       break;
   }
@@ -55,7 +54,6 @@ const WordProvider = ({ children }) => {
     <WordContext.Provider value={words}>
       <WordDisPathContext.Provider value={wordDispath}>
         {children}
-        <div className="border-2n"></div>
       </WordDisPathContext.Provider>
     </WordContext.Provider>
   );
