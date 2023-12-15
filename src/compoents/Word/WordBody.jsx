@@ -1,37 +1,43 @@
 import React, { useEffect, useState } from "react";
-
+import WordBottom from "../Word/wordBottom"
 import WordInput from "./WordInput";
 import { createPortal } from "react-dom";
 import Modal from "../ui/Modal";
 import WordModalContext from "./WordModalContext";
 import { useWord, useWordDispath } from "../../contexts/WordContext";
-import StartButton from "../ui/Button/StartButton";
+
 import WordlTableBody from "./WordlTableBody";
+import Button from "../ui/Button/Button";
 
 const WordBody = () => {
   const { isPlaying, playWord } = useWord();
+  const dispath = useWordDispath();
 
-  const [isOpen, setOpen] = useState(false);
+
   const [isStart, setStart] = useState(false);
 
-  useEffect(() => {
-    if (playWord.length !== 0) {
-      setOpen(!isPlaying);
-    }
-  }, [isPlaying]);
+  const onClickStart = () => {
+    dispath({
+      type: "RANDDOM_WORD"
+    })
+    setStart(true)
+  }
 
   return (
-    <>
+    <div className="p-2">
       {isStart ? (
         <>
           <WordlTableBody />
           <WordInput />
+          <WordBottom />
         </>
       ) : (
-        <StartButton onClick={() => setStart(true)} />
+        <div className="h-[90vh] flex justify-center items-center">
+          <Button className={'p-4'} onClick={onClickStart} >시작 버튼</Button>
+        </div>
       )}
 
-      {isOpen &&
+      {(!isPlaying && playWord.length !== 0) &&
         createPortal(
           <Modal>
             <WordModalContext
@@ -42,7 +48,7 @@ const WordBody = () => {
           </Modal>,
           document.body
         )}
-    </>
+    </div>
   );
 };
 
