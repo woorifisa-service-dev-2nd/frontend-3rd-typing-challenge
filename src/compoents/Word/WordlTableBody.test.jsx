@@ -9,7 +9,7 @@ vi.mock("../../contexts/WordContext", () => {
     ...wordContext,
     useWord: () => ({
       originalData: [1, 2, 3, 4, 5],
-      playWord: ["가나", "다라", "마바"],
+      playWord: ["가나", "다라", "마바", "자차"],
       playWordNumber: 4,
       correctCount: 0,
       isPlaying: false,
