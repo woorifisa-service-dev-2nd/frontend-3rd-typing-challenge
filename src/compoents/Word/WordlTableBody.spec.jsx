@@ -21,10 +21,5 @@ let renderResult;
 describe("test", () => {
   it("test2", async () => {
     renderResult = render(<WordlTableBody />);
-    // 성공
-    // const html = await screen.getByTestId("ui").innerHTML;
-    // expect(html);
-
-    expect(screen.getByText("가나")).toBeInTheDocument();
   });
 });

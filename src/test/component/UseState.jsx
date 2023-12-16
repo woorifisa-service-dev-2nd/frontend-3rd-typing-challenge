@@ -10,7 +10,7 @@ const UseState = () => {
   return (
     <>
       <div data-testid="wrap">
-        <div>{isStart ? "on" : "off"}</div>
+        <div>{isStart ? <div>"on"</div> : <div>"off"</div>}</div>
         <button data-testid="startBtn" onClick={btnClick}>
           변경
         </button>

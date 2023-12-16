@@ -10,15 +10,15 @@ import WordlTableBody from "./WordlTableBody";
 import Button from "../ui/Button/Button";
 
 const WordBody = () => {
-  // const { isPlaying, playWord } = useWord();
-  // const dispath = useWordDispath();
+  const { isPlaying, playWord } = useWord();
+  const dispath = useWordDispath();
 
   const [isStart, setStart] = useState(false);
 
   const onClickStart = () => {
-    // dispath({
-    //   type: "GAME_START",
-    // });
+    dispath({
+      type: "GAME_START",
+    });
     setStart(true);
   };
 
@@ -32,7 +32,7 @@ const WordBody = () => {
         </>
       ) : (
         <div
-          data-testid="startBtn"
+          data-testid="start-btn"
           className="h-[90vh] flex justify-center items-center"
         >
           <Button className={"p-4"} onClick={onClickStart}>
@@ -40,7 +40,7 @@ const WordBody = () => {
           </Button>
         </div>
       )}
-      {/* 
+
       {!isPlaying &&
         playWord.length !== 0 &&
         createPortal(
@@ -52,7 +52,7 @@ const WordBody = () => {
             />
           </Modal>,
           document.body
-        )} */}
+        )}
     </div>
   );
 };
