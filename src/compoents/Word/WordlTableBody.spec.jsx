@@ -2,6 +2,12 @@ import { render, screen } from "../../test/utils/test-utils";
 import { describe, expect, it, test, vi } from "vitest";
 import WordlTableBody from "./WordlTableBody";
 
+const mockObj = {
+  onGameStart: vi.fn(),
+  corrent: vi.fn(),
+};
+const gamStartSpy = vi.spyOn(mockObj, "onGameStart");
+
 vi.mock("../../contexts/WordContext", () => {
   const wordContext = vi.importActual("../../contexts/WordContext");
 
@@ -18,8 +24,13 @@ vi.mock("../../contexts/WordContext", () => {
 });
 
 let renderResult;
-describe("test", () => {
-  it("test2", async () => {
+describe("Word Table Body", () => {
+  it("render 확인", async () => {
     renderResult = render(<WordlTableBody />);
+
+    expect(screen.getByText(/가나/)).toBeInTheDocument();
+    expect(screen.getByText(/다라/)).toBeInTheDocument();
+    expect(screen.getByText(/마바/)).toBeInTheDocument();
+    expect(screen.getByText(/자차/)).toBeInTheDocument();
   });
 });

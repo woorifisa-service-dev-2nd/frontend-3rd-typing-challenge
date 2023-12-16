@@ -5,9 +5,8 @@ import WordModalContext from "./WordModalContext";
 
 const mockObj = {
   onClose: vi.fn(),
-  onGameStart: vi.fn(),
+  dispath: vi.fn((aciton) => {}),
 };
-const gamStartSpy = vi.spyOn(mockObj, "onGameStart");
 
 vi.mock("../../contexts/WordContext", () => {
   const wordContext = vi.importActual("../../contexts/WordContext");
@@ -15,9 +14,9 @@ vi.mock("../../contexts/WordContext", () => {
   return {
     ...wordContext,
     useWord: () => ({}),
-    useWordDispath: (as) => (da) => {
-      console.log(as, da);
-      mockObj.onGameStart();
+    useWordDispath: () => (aciton) => {
+      console.log(aciton);
+      mockObj.dispath(aciton);
     },
   };
 });
@@ -25,20 +24,23 @@ vi.mock("../../contexts/WordContext", () => {
 let renderResult;
 describe("test", () => {
   it("아니오 버튼 누를시 close ", async () => {
-    const dispathSpy = vi.spyOn(mockObj, "onClose");
+    const onCloseSpy = vi.spyOn(mockObj, "onClose");
 
     renderResult = render(<WordModalContext onClose={mockObj.onClose} />);
-    expect(dispathSpy).not.toHaveBeenCalled();
+    expect(onCloseSpy).not.toHaveBeenCalled();
 
     await userEvent.click(screen.getByText(/아니오/));
 
-    expect(dispathSpy).toHaveBeenCalled();
+    expect(onCloseSpy).toHaveBeenCalled();
   });
   it("네 버튼 누를시 게임시작", async () => {
     renderResult = render(<WordModalContext onClose={mockObj.onClose} />);
-    expect(gamStartSpy).not.toBeCalled();
+    const dispathSpy = vi.spyOn(mockObj, "dispath");
+
+    expect(dispathSpy).not.toBeCalled();
 
     await userEvent.click(screen.getByText(/네/));
-    expect(gamStartSpy).toBeCalled();
+    expect(dispathSpy).toBeCalled();
+    expect(dispathSpy).toHaveBeenCalledWith({ type: "GAME_START" });
   });
 });

@@ -1,9 +1,4 @@
-import {
-  render,
-  screen,
-  userEvent,
-  waitFor,
-} from "../../test/utils/test-utils";
+import { render, screen } from "../../test/utils/test-utils";
 import { describe, expect, vi } from "vitest";
 import WordBottom from "./WordBottom";
 
