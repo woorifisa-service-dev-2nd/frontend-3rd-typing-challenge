@@ -10,20 +10,20 @@ import WordlTableBody from "./WordlTableBody";
 import Button from "../ui/Button/Button";
 
 const WordBody = () => {
-  const { isPlaying, playWord } = useWord();
-  const dispath = useWordDispath();
+  // const { isPlaying, playWord } = useWord();
+  // const dispath = useWordDispath();
 
   const [isStart, setStart] = useState(false);
 
   const onClickStart = () => {
-    dispath({
-      type: "GAME_START",
-    });
+    // dispath({
+    //   type: "GAME_START",
+    // });
     setStart(true);
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2" data-testid="body-wrap">
       {isStart ? (
         <>
           <WordlTableBody />
@@ -31,13 +31,16 @@ const WordBody = () => {
           <WordBottom />
         </>
       ) : (
-        <div className="h-[90vh] flex justify-center items-center">
+        <div
+          data-testid="startBtn"
+          className="h-[90vh] flex justify-center items-center"
+        >
           <Button className={"p-4"} onClick={onClickStart}>
-            시작 버튼
+            시작 버튼 {isStart ? "true" : "false"}
           </Button>
         </div>
       )}
-
+      {/* 
       {!isPlaying &&
         playWord.length !== 0 &&
         createPortal(
@@ -49,7 +52,7 @@ const WordBody = () => {
             />
           </Modal>,
           document.body
-        )}
+        )} */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { render, screen } from "../../utils/test-utils";
+import { render, screen } from "../../test/utils/test-utils";
 import { describe, expect, it, test, vi } from "vitest";
 import WordlTableBody from "./WordlTableBody";
 
@@ -24,5 +24,7 @@ describe("test", () => {
     // 성공
     // const html = await screen.getByTestId("ui").innerHTML;
     // expect(html);
+
+    expect(screen.getByText("가나")).toBeInTheDocument();
   });
 });

@@ -6,7 +6,7 @@ const WordlTableBody = () => {
 
   return (
     <ul
-      test-id="ui"
+      data-testid="ui"
       className="flex flex-wrap text-3xl gap-4 justify-center items-center container mx-auto max-w-screen-md"
     >
       {words.playWord.map((word, index) => (
