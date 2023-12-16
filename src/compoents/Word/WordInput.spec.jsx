@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from "../../test/utils/test-utils";
+import { act, render, screen, userEvent } from "../../test/utils/test-utils";
 import { describe, expect, it, test, vi } from "vitest";
 
 import WordInput from "./WordInput";
@@ -40,6 +40,6 @@ describe("WordInput", () => {
     expect(dispathSpy).toHaveBeenCalledWith({ type: "CORRECT", correctId: 1 });
 
     await userEvent.type(input, "가나2{enter}");
-    expect(dispathSpy).not.toHaveBeenCalledWith({ type: "CORRECT" });
+    expect(screen.getByText(/다시 입력하세요/)).toBeInTheDocument();
   });
 });
