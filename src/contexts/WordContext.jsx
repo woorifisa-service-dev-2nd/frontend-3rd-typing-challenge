@@ -36,8 +36,11 @@ const reducerWord = (state, action) => {
         isPlaying: correctCount === state.playWordNumber ? false : true,
       };
     }
-    default:
-      break;
+    default: {
+      return {
+        ...state,
+      };
+    }
   }
 };
 

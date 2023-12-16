@@ -7,6 +7,7 @@ const InputOne = ({ onKeyDown, onClickIcon, btnText, children, inputRef }) => {
       <div className="w-full px-4  py-4 ">
         <div className="relative w-full min-w-[200px] h-10">
           <input
+            data-testid="refInput"
             ref={inputRef}
             className="peer border w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-none focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] !pr-9 border-blue-gray-200 focus:border-gray-900"
             placeholder=" "

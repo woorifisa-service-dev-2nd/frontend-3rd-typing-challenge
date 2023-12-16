@@ -1,7 +1,7 @@
 import { render, screen, userEvent } from "../../test/utils/test-utils";
 import { describe, expect, it, test, vi } from "vitest";
 
-import WordBody from "./WordBody";
+import WordInput from "./WordInput";
 
 const mockObj = {
   dispath: vi.fn((actions) => {}),
@@ -27,13 +27,19 @@ vi.mock("../../contexts/WordContext", () => {
 });
 
 let renderResult;
-describe("WordBody", () => {
-  it("시작 버튼 클릭시 게임시작", async () => {
-    renderResult = render(<WordBody />);
+describe("WordInput", () => {
+  it("단어를 입력하고 정답 확인 버튼 클릭", async () => {
+    renderResult = render(<WordInput />);
 
-    await userEvent.click(screen.getByText(/시작 버튼/));
-    expect(dispathSpy).toHaveBeenCalledWith({ type: "GAME_START" });
+    const input = screen.getByTestId("refInput");
 
-    expect(screen.getByTestId("body-wrap")).not.toHaveTextContent(/시작 버튼/);
+    await userEvent.type(input, "가나{enter}");
+    expect(dispathSpy).toHaveBeenCalledWith({ type: "CORRECT", correctId: 0 });
+
+    await userEvent.type(input, "다라{enter}");
+    expect(dispathSpy).toHaveBeenCalledWith({ type: "CORRECT", correctId: 1 });
+
+    await userEvent.type(input, "가나2{enter}");
+    expect(dispathSpy).not.toHaveBeenCalledWith({ type: "CORRECT" });
   });
 });

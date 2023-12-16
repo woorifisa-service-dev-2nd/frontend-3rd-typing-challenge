@@ -12,10 +12,12 @@ export default defineConfig({
     setupFiles: "./src/test/setup/setup.js",
     coverage: {
       provider: "v8",
-      include: ["src/constants", "src/**/compoents"],
+      // include: ["src/constants", "src/**/compoents"],
+      include: ["src/**"],
+      exclude: ["src/App.jsx", "src/main.jsx"],
     },
     reporters: ["verbose"],
-    include: ["./src/**/*{test,spec}.jsx"],
+    include: ["./src/**/*{test,spec}.{jsx,js}"],
     cache: false,
   },
 });
